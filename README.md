@@ -8,20 +8,16 @@
 
 ### 消息模板定义
 
-    option java_package = "com.push6.socket.message";
-	option java_outer_classname = "Protocol";
-	
-	message Request {
-	    required string partner = 1; //合作身份者ID
-	    required string command = 2; //要执行的命令
-	    required string sign = 3; //将message签名后的值
-	    required string message = 4;  //传输的消息主体
-	}
-	message Response {
-	    required string command = 1; //要执行的命令
-	    required string sign = 3; //将message签名后的值
-	    required string message = 4;  //返回的消息提示
-	}
+    option java_package = "com.push6.proxy.message";
+    option java_outer_classname = "Protocol";
+
+    message Message {
+        required string partner = 1;  // 合作身份者ID
+        required string command = 2;  // 要执行的命令
+        required string sign = 3;  // 将message签名后的值
+        optional string token = 4; // 工作秘钥
+        required string message = 5;  // 传输的消息主体内容
+    }
 
 
 
