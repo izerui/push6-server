@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="restfulBean" class="com.push6.restful.registry.RestfulBean" init-method="start">
+        <property name="zkClient" ref="zkClient"/>
+        <property name="root" value="restfulCommand"/>
+        <property name="businessMap">
+            <map>
+                <entry key="demoCommand" value="http://{server}:8080/demoPrj/rest/demo"/>
+                <entry key="demoCommand1" value="http://{server}:8080/demoPrj/rest/demo1"/>
+                <entry key="demoCommand2" value="http://{server}:8080/demoPrj/rest/demo2"/>
+            </map>
+        </property>
+    </bean>
+    <!-- 引入zookeeper client bean -->
+    <import resource="zookeeper.xml"/>
+
+</beans>

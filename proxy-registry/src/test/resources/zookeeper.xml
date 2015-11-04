@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="zkClient" class="com.push6.zkclient.ZkClientImpl" init-method="connect" destroy-method="close">
+        <constructor-arg index="0" type="com.push6.zkclient.ZkConfig" ref="zkConfig"/>
+        <constructor-arg index="1" type="org.apache.curator.framework.state.ConnectionStateListener"
+                         ref="zkStateListener"/>
+    </bean>
+
+    <bean id="zkStateListener" class="com.push6.restful.registry.ZkStateListener">
+        <property name="restfulBean" ref="restfulBean"/>
+    </bean>
+
+    <bean id="zkConfig" class="com.push6.zkclient.ZkConfig">
+        <!-- zookeeper服务器连接串 -->
+        <property name="connectionString" value="192.168.1.141:2182"/>
+    </bean>
+
+</beans>

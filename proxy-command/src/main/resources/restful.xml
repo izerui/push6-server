@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="restfulBean" class="com.push6.restful.registry.RestfulBean" init-method="start">
+              <property name="zkClient" ref="zkClient"/>
+              <property name="root" value="restfulCommand"/>
+              <property name="businessMap">
+                     <map>
+                            <entry key="udpDemoCommand" value="http://{server}:7953/push6-server-command/udpDemoCommand"/>
+                            <entry key="heartBeatCommand" value="http://{server}:7953/push6-server-command/heartBeatCommand"/>
+                            <entry key="workKeyCommand" value="http://{server}:7953/push6-server-command/workKeyCommand"/>
+                            <entry key="demoCommand" value="https://api.weixin.qq.com/cgi-bin/token"/>
+                     </map>
+              </property>
+       </bean>
+       <!-- 引入zookeeper client bean -->
+       <import resource="zookeeper.xml"/>
+
+</beans>
