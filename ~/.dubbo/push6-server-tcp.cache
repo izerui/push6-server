@@ -1,3 +1,0 @@
-#Dubbo Registry Cache
-#Mon Jul 13 19:17:36 CST 2015
-com.push6.proxy.service.OfflineService=empty\://192.168.1.111\:20880/com.push6.proxy.service.OfflineService?anyhost\=true&application\=offline-interface&category\=configurators&check\=false&dubbo\=2.4.10&interface\=com.push6.proxy.service.OfflineService&methods\=isInWhiteList,expireWorkKey,getCommandWhiteList,getWorkKeyByDeviceInfo,removeCommandFromWhiteList,notifyDevice,getDeviceInfoByWorkKey,addCommandWhiteList,getPartnerKey,createWorkKeyByDeviceInfo,isValid&owner\=serv&pid\=12052&side\=provider&timestamp\=1436786255491
